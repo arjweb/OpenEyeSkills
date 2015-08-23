@@ -1,7 +1,7 @@
 
 
 /* ==========================================================================
-   Author's custom styles
+   Alan's custom styles
    ========================================================================== */
 
 
@@ -9,7 +9,14 @@
     color: rgba(200, 50, 255, 1);
 }
 
-
+/* Make carousel images centred on home screen */
+.carousel-inner img {
+  margin: auto;
+}
+/* Remove the carousel gradients at left and right */
+.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
 
 
 
