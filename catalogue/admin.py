@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 # Register your models here.
 
-from .models import Profile
+from .models import Profile, TopicArea
 
 
 # Define an inline admin descriptor for Profile model
@@ -26,3 +26,12 @@ class UserAdmin(UserAdmin):
 # Re-register UserAdmin
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
+
+
+class TopicAreaAdmin(admin.ModelAdmin):
+    list_display = ["__str__", "curator", "active"]
+
+    class Meta:
+        model = TopicArea
+
+admin.site.register(TopicArea, TopicAreaAdmin)

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+<!-- Need to add the line below even though inherited because I'm using static refs -->
+{% load staticfiles %}
+
+{% block head_title %}OpenEye | Curated Catalogue{% endblock %}
+
+{% block content %}
+    <!-- Main area for message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="hero row">
+                <div class="col-md-6 col-md-offset-3">
+
+                    <p>You are now logged into the OpenEye catalogue.</p>
+
+                </div>
+            </div>
+        </div>
+        <!-- end hero -->
+    </div>
+
+    {% if topic_list %}
+        <dl>
+            {% for topic in topic_list %}
+                <dt>{{ topic.name }}</dt>
+            {% endfor %}
+        </dl>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}?next=/">Logout</a></li>
+    {% else %}
+        <li><a href="{% url 'login' %}?next=/">Login</a></li>
+    {%  endif %}
+{% endblock %}
