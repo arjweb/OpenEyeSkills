@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 # Register your models here.
 
-from .models import Profile, TopicArea
+from .models import Profile, TopicArea, Level, JobType, CatalogueItem
 
 
 # Define an inline admin descriptor for Profile model
@@ -35,3 +35,30 @@ class TopicAreaAdmin(admin.ModelAdmin):
         model = TopicArea
 
 admin.site.register(TopicArea, TopicAreaAdmin)
+
+
+class LevelAdmin(admin.ModelAdmin):
+    list_display = ["__str__", "active"]
+
+    class Meta:
+        model = Level
+
+admin.site.register(Level, LevelAdmin)
+
+
+class JobTypeAdmin(admin.ModelAdmin):
+    list_display = ["__str__", "active"]
+
+    class Meta:
+        model = JobType
+
+admin.site.register(JobType, JobTypeAdmin)
+
+
+class CatalogueItemAdmin(admin.ModelAdmin):
+    list_display = ["__str__", "topic_area", "discovered_by"]
+
+    class Meta:
+        model = CatalogueItem
+
+admin.site.register(CatalogueItem, CatalogueItemAdmin)
