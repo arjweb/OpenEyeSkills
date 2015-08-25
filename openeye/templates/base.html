@@ -30,7 +30,9 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
         {% block navbar %}
+            {% if user.is_authenticated %}
             <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
@@ -42,6 +44,18 @@
                     </ul>
                 </div>
             </div>
+        {% else %}
+             <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">OpenEye - Not logged In</a>
+                    </div>
+                    <ul class="nav navbar-text navbar-right">
+                        <!-- TODO Remove this -->
+                        <li class="active"><p>{{ user.username.upper }}</p></li>
+                    </ul>
+                </div>
+        {% endif %}
         {% endblock %}
 
     {% block content %}{% endblock %}
@@ -71,5 +85,9 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X');ga('send','pageview');
         </script>
+    
+       {% block extra_scripts %}
+           
+       {% endblock extra_scripts %}
     </body>
 </html>

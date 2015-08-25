@@ -23,7 +23,7 @@ class MainView(generic.ListView):
 
     # TODO Make this only active topic areas?
     def get_queryset(self):
-        return TopicArea.objects.all()
+        return TopicArea.objects.all().order_by('name')
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):

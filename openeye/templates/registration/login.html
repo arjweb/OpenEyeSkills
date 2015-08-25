@@ -26,5 +26,15 @@
             </div>
         </div>
     </div>
+
 {% endblock content %}
 
+{% block extra_scripts %}
+    <script type="text/javascript">
+        $(function () {
+            // When the page has finished loading,
+            // autofocus on the username field
+            $('input#id_username').focus();
+        });
+    </script>
+{% endblock %}

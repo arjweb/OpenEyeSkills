@@ -21,3 +21,7 @@ class TopicArea(models.Model):
 
     def __str__(self):
         return self.name
+
+    # TODO Add method to show the curator
+
+    # TODO Add method to calculate days since resource added
