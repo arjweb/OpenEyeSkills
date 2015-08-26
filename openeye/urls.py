@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from .views import home, home_files
 from openeye import views
+from catalogue import views as catalogue_views
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', home, name='home'),
     url(r'^main/$', views.MainView.as_view(), name='MainView'),
+    url(r'^topic/(?P<pk>[0-9]+)/$', catalogue_views.TopicView.as_view(), name='TopicView'),
     url(r'^(?P<filename>(robots.txt)|(humans.txt))$', home_files, name='home-files'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),

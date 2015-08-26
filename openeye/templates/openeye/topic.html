@@ -11,7 +11,7 @@
         <div class="container">
             <div class="hero row">
                 <div class="col-md-6 col-md-offset-3">
-                    <p>Curated Resources</p>
+                    <p>{{ TopicName }}</p>
                 </div>
             </div>
         </div>
@@ -33,24 +33,20 @@
                 </div>
             </div>
             <div class="cpanel">
-                <div class="col-md-6 col-sm-6">
-                    <h4>Curated Content Categories</h4>
-                    {% if topic_list %}
+                <div class="col-md-8 col-sm-8">
+                    <h4>Resources</h4>
+                    {% if resource_list %}
                         <dl>
-                            {% for topic in topic_list %}
-                                <p></p><a href="{% url 'TopicView' pk=topic.id %}">{{ topic.name }}</a>&nbsp;<span class="name">(Alan Jones)</span></p>
+                            {% for item in resource_list %}
+                                <p>{{ item.title }}</p>
                             {% endfor %}
                         </dl>
+                    {% else %}
+                        <p>Sorry, there is no content for this topic yet.</p>
                     {% endif %}
-                </div>
-            </div>
-            <div class="rpanel">
-                <div class="col-md-4 col-sm-4">
-                    <h4>Activity Dashboard</h4>
                 </div>
             </div>
         </div>
     </div>
 
-
-{% endblock %}
+{% endblock %}S
