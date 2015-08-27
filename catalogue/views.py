@@ -27,3 +27,14 @@ class TopicView(generic.ListView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(TopicView, self).dispatch(*args, **kwargs)
+
+
+class DetailView(generic.DetailView):
+
+    template_name = "openeye/resource_detail.html"
+    model = CatalogueItem
+    context_object_name = 'resource'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(DetailView, self).dispatch(*args, **kwargs)

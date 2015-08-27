@@ -41,7 +41,7 @@
                     {% if resource_list %}
                         <dl>
                             {% for item in resource_list %}
-                                <p class="res_title"><a href="#">{{ item.title }}</a>&nbsp;<span class="name">(Discovered by&nbsp;{{ item.full_name }})</span></p>
+                                <p class="res_title"><a href="{% url 'ResourceDetail' item.id %}">{{ item.title }}</a>&nbsp;<span class="name">(Discovered by&nbsp;{{ item.full_name }})</span></p>
                                 <p class="res_desc">{{ item.description }}</p>
                                 <p class="res_desc">YOU WILL LEARN:&nbsp;{{ item.what_learn }}</p>
                             {% endfor %}
