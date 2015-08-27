@@ -23,7 +23,17 @@
     color: #aaaaaa;
 }
 
+.cpanel p.res_desc {
+    font-size: 80%;
+    margin-bottom: 0 !important;
+}
 
+.cpanel p.res_title {
+    margin-bottom: 0 !important;
+    margin-top: 15px;
+}
+.lpanel p {
+    margin-top: 15px;
 
-
+}
 

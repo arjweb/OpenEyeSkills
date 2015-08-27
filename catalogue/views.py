@@ -12,6 +12,7 @@ class TopicView(generic.ListView):
 
     template_name = "openeye/topic.html"
     context_object_name = 'resource_list'
+    paginate_by = 5
 
     # TODO Make this only active topic areas?
     def get_queryset(self, *args, **kwargs):

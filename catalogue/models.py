@@ -64,3 +64,7 @@ class CatalogueItem(models.Model):
 
     def __str__(self):
         return self.title
+
+    def full_name(self):
+        # Fetches full name of the discovered_by linked user
+        return self.discovered_by.get_full_name()
