@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^main/$', views.MainView.as_view(), name='MainView'),
     url(r'^topic/(?P<pk>[0-9]+)/$', catalogue_views.TopicView.as_view(), name='TopicView'),
     url(r'^resource/(?P<pk>[0-9]+)/$', catalogue_views.DetailView.as_view(), name='ResourceDetail'),
+    url(r'^contribute/$', catalogue_views.ContributeView.as_view(), name='Contribute'),
     url(r'^(?P<filename>(robots.txt)|(humans.txt))$', home_files, name='home-files'),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout'),

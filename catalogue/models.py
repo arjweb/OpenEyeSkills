@@ -51,13 +51,13 @@ class JobType(models.Model):
 class CatalogueItem(models.Model):
     title = models.CharField(max_length=80)
     # TODO check database max lengths for text fields
-    description = models.CharField(max_length=2000, blank=True)
+    description = models.TextField(max_length=2000, blank=True)
     topic_area = models.ForeignKey(TopicArea)
     level = models.ForeignKey(Level)
     link = models.CharField(max_length=255)
     discovered_by = models.ForeignKey(User)
-    what_learn = models.CharField(max_length=2000, blank=True)
-    how_apply = models.CharField(max_length=2000, blank=True)
+    what_learn = models.TextField(max_length=2000, blank=True)
+    how_apply = models.TextField(max_length=2000, blank=True)
     relevant_to = models.ManyToManyField(JobType)
     date_created = models.DateTimeField(auto_now_add=True, auto_now=False)
     date_modified = models.DateTimeField(auto_now_add=False, auto_now=True)

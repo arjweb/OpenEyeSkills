@@ -3,7 +3,7 @@ from .models import TopicArea, CatalogueItem
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-
+from .forms import ContributeForm
 # Create your views here.
 
 
@@ -38,3 +38,19 @@ class DetailView(generic.DetailView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(DetailView, self).dispatch(*args, **kwargs)
+
+
+# TODO May need to inherit from CreateView I've no idea
+class ContributeView(generic.FormView):
+
+    template_name = "openeye/contribute.html"
+    form_class = ContributeForm
+    model = CatalogueItem
+    context_object_name = 'contribution'
+    # fields = ['topic_area', 'title', 'description', 'link', 'what_learn', 'how_apply', 'level', 'relevant_to', 'discovered_by']
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ContributeView, self).dispatch(*args, **kwargs)
+
+
