@@ -41,13 +41,10 @@ class DetailView(generic.DetailView):
 
 
 # TODO May need to inherit from CreateView I've no idea
-class ContributeView(generic.FormView):
+class ContributeView(generic.CreateView):
 
     template_name = "openeye/contribute.html"
     form_class = ContributeForm
-    model = CatalogueItem
-    context_object_name = 'contribution'
-    # fields = ['topic_area', 'title', 'description', 'link', 'what_learn', 'how_apply', 'level', 'relevant_to', 'discovered_by']
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
