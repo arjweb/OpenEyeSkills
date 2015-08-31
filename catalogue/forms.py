@@ -8,7 +8,9 @@ class ContributeForm(forms.ModelForm):
         model = CatalogueItem
         fields = ['title', 'topic_area', 'description', 'link', 'what_learn', 'how_apply', 'level', 'relevant_to', 'discovered_by']
 
-    ROLE_CHOICES = [[x.id, x.job] for x in JobType.objects.all()]
+
+    # Fetch all the values in JobTypes to label the check boxes in the form
+    ROLE_CHOICES = [[x.id, x.job] for x in JobType.objects.all().order_by('job')]
 
     title = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'To sell this resource to others'}), max_length=80, required=True)
     description = forms.CharField(widget=forms.Textarea(attrs={'rows': 2, 'placeholder': 'Clear, e.g. format, duration, activities...'}))

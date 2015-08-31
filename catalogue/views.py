@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.urlresolvers import reverse_lazy
 from .models import TopicArea, CatalogueItem
 from django.views import generic
 from django.contrib.auth.decorators import login_required
@@ -44,6 +45,7 @@ class ContributeView(generic.CreateView):
 
     template_name = "openeye/contribute.html"
     form_class = ContributeForm
+    success_url = reverse_lazy('MainView')
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):

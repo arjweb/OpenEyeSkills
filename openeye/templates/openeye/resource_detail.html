@@ -20,20 +20,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="lpanel">
-                <div class="col-md-2 col-sm-2">
-                    <h4>Options</h4>
-                    <p>Suggest a resource</p>
-                    <p>Search by role/activity</p>
-                    {% if user.is_authenticated %}
-                        <a href="{% url 'logout' %}?next=/">Logout</a>
-                    {% else %}
-                        <<a href="{% url 'login' %}?next=/">Login</a>
-                    {% endif %}
-                </div>
-            </div>
-
-
+            {% include 'openeye/lpanel.html' %}
 
             <div class="cpanel">
                 <div class="col-md-8 col-sm-8">
