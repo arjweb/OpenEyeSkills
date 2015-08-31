@@ -40,7 +40,6 @@ class DetailView(generic.DetailView):
         return super(DetailView, self).dispatch(*args, **kwargs)
 
 
-# TODO May need to inherit from CreateView I've no idea
 class ContributeView(generic.CreateView):
 
     template_name = "openeye/contribute.html"
