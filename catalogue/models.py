@@ -23,7 +23,12 @@ class TopicArea(models.Model):
     def __str__(self):
         return self.name
 
-    # TODO Add method to show the curator
+    # Method to show the curator, if there is one
+    def curator_name(self):
+        if self.curator.get_full_name() == "":
+            return ""
+        else:
+            return "(" + self.curator.get_full_name() + ")"
 
     # TODO Add method to calculate days since resource added
 

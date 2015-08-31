@@ -28,7 +28,7 @@
                     {% if topic_list %}
                         <dl>
                             {% for topic in topic_list %}
-                                <p></p><a href="{% url 'TopicView' pk=topic.id %}">{{ topic.name }}</a>&nbsp;<span class="name">(Alan Jones)</span></p>
+                                <p></p><a href="{% url 'TopicView' pk=topic.id %}">{{ topic.name }}</a>&nbsp;<span class="name">{{ topic.curator_name }}</span></p>
                             {% endfor %}
                         </dl>
                     {% endif %}
