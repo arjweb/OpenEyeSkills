@@ -6,9 +6,8 @@ class ContributeForm(forms.ModelForm):
 
     class Meta:
         model = CatalogueItem
-        fields = ['topic_area', 'title', 'description', 'link', 'what_learn', 'how_apply', 'level', 'relevant_to', 'discovered_by']
+        fields = ['title', 'topic_area', 'description', 'link', 'what_learn', 'how_apply', 'level', 'relevant_to', 'discovered_by']
 
-    # topic_area = forms.ChoiceField()  # need to add choices
     title = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'To sell this resource to others'}), max_length=80, required=True)
     description = forms.CharField(widget=forms.Textarea(attrs={'rows': 2, 'placeholder': 'Clear, e.g. format, duration, activities...'}))
     link = forms.CharField(widget=forms.URLInput(attrs={'placeholder': 'If required, link to resource http://...'}), required=False)
